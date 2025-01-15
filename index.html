@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Calculator - Hitto</title>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .dropdown-menu {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .form-check-label {
+      padding-left: 5px;
+    }
+
+    input[type="date"] {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Trip Calculator Hitto: In-progress</h1>
+
+  <div class="container">
+    <!-- Date pickers for trip duration -->
+    <div class="form-group">
+      <label for="fromDate">From Date:</label>
+      <input type="date" id="fromDate" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="toDate">Return Date:</label>
+      <input type="date" id="toDate" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label>Select locations (You want to visit):</label>
+      <!-- Dropdown with checkboxes -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Locations
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><input class="form-check-input" type="checkbox" value="Nainital" id="nainital"><label class="form-check-label" for="nainital">Nainital</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Auli" id="auli"><label class="form-check-label" for="auli">Auli</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Tungnath" id="tungnath"><label class="form-check-label" for="tungnath">Tungnath</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Mussoorie" id="mussoorie"><label class="form-check-label" for="mussoorie">Mussoorie</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Rishikesh" id="rishikesh"><label class="form-check-label" for="rishikesh">Rishikesh</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Bageshwar" id="bageshwar"><label class="form-check-label" for="bageshwar">Bageshwar</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Baijnath" id="baijnath"><label class="form-check-label" for="baijnath">Baijnath</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Badrinath" id="badrinath"><label class="form-check-label" for="badrinath">Badrinath</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Bhimtal" id="bhimtal"><label class="form-check-label" for="bhimtal">Bhimtal</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Binsar" id="binsar"><label class="form-check-label" for="binsar">Binsar</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Chakrata" id="chakrata"><label class="form-check-label" for="chakrata">Chakrata</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Chamoli" id="chamoli"><label class="form-check-label" for="chamoli">Chamoli</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Dhanaulti" id="dhanaulti"><label class="form-check-label" for="dhanaulti">Dhanaulti</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Gangotri" id="gangotri"><label class="form-check-label" for="gangotri">Gangotri</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Gopeshwar" id="gopeshwar"><label class="form-check-label" for="gopeshwar">Gopeshwar</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Gwaldam" id="gwaldam"><label class="form-check-label" for="gwaldam">Gwaldam</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Haridwar" id="haridwar"><label class="form-check-label" for="haridwar">Haridwar</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Joshimath" id="joshimath"><label class="form-check-label" for="joshimath">Joshimath</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Kausani" id="kausani"><label class="form-check-label" for="kausani">Kausani</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Kedarnath" id="kedarnath"><label class="form-check-label" for="kedarnath">Kedarnath</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Mukteshwar" id="mukteshwar"><label class="form-check-label" for="mukteshwar">Mukteshwar</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Munsiyari" id="munsiyari"><label class="form-check-label" for="munsiyari">Munsiyari</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Pindari" id="pindari"><label class="form-check-label" for="pindari">Pindari</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Ranikhet" id="ranikhet"><label class="form-check-label" for="ranikhet">Ranikhet</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Tapovan" id="tapovan"><label class="form-check-label" for="tapovan">Tapovan</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Uttarkashi" id="uttarkashi"><label class="form-check-label" for="uttarkashi">Uttarkashi</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Valley of Flowers" id="valleyofflowers"><label class="form-check-label" for="valleyofflowers">Valley of Flowers</label></li>
+          <li><input class="form-check-input" type="checkbox" value="Yamunotri" id="yamunotri"><label class="form-check-label" for="yamunotri">Yamunotri</label></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="meals">
+      <label class="form-check-label" for="meals">Include meals (Breakfast, Lunch, Dinner)?</label>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="cab">
+      <label class="form-check-label" for="cab">Include Cab Service?</label>
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="hotel">
+      <label class="form-check-label" for="hotel">Include Hotel Stay?</label>
+    </div>
+
+    <button onclick="calculateTripCost()">Calculate Total Cost</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <!-- Include Bootstrap JS (for components like dropdowns, modals, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function calculateTripCost() {
+      const locationCost = {
+        "Auli": 9230,
+        "Munsiyari": 9230,
+        "Mukteshwar": 4615,
+        "Nainital": 2000,
+        "Ranikhet": 2769,
+        "Almora": 4615,
+        "Rishikesh": 7692,
+        "Haridwar": 8307,
+        "Mussoorie": 9230,
+        "Valley of Flowers": 9230,
+        "Binsar": 4615,
+        "Pindari": 6154,
+        "Badrinath": 9230,
+        "Yamunotri": 9230,
+        "Bageshwar": 6154,
+        "Tapovan": 7692,
+        "Chakrata": 9230,
+        "Chamoli": 9230,
+        "Baijnath": 4615,
+        "Gopeshwar": 9230,
+        "Joshimath": 9230,
+        "Gangotri": 9230,
+        "Gwaldam": 6154,
+        "Bhimtal": 2000,
+        "Kausani": 5700,
+        "Tungnath": 9230,
+      };
+
+      let totalCost = 0;
+      let selectedLocations = [];
+
+      // Calculate the number of days
+      const fromDate = new Date(document.getElementById('fromDate').value);
+      const toDate = new Date(document.getElementById('toDate').value);
+      const tripDays = Math.ceil((toDate - fromDate) / (1000 * 3600 * 24)); // Calculate difference in days
+
+      if (tripDays <= 0) {
+        document.getElementById('result').innerHTML = 'Invalid dates. Please ensure the return date is after the start date.';
+        return;
+      }
+
+      // Loop through all checkbox inputs and calculate the cost based on selected locations
+      document.querySelectorAll('.form-check-input').forEach(checkbox => {
+        if (checkbox.checked && locationCost[checkbox.value]) {
+          totalCost += locationCost[checkbox.value];
+          selectedLocations.push(checkbox.value);
+        }
+      });
+
+      // Optionally add daily service costs
+      if (document.getElementById('meals').checked) totalCost += 1500 * tripDays; // Per day cost for meals
+      if (document.getElementById('cab').checked) totalCost += 2000 * tripDays; // Per day cost for cab
+      if (document.getElementById('hotel').checked) totalCost += 2500 * tripDays; // Per day cost for hotel
+
+      // Display the result
+      let resultMessage = `Total Trip Cost: ₹${totalCost}<br>Selected Locations: ${selectedLocations.join(", ")}<br>Trip Duration: ${tripDays} days`;
+      document.getElementById('result').innerHTML = resultMessage;
+    }
+  </script>
+</body>
+
+</html>
